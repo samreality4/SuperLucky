@@ -8,17 +8,18 @@ function handleChange (event, newValue) {
     setTabState(newValue);
 
 }
-return <Paper>
+return <Paper >
 <Tabs
+className="row m-0 p-0 col-12"
 value={tabState}
 onChange={handleChange}
 indicatorColor="primary"
 textColor="primary"
 centered
 >
-<Tab label ="Regular Number Rank"/>
-<Tab label ="Winning Amout by Date"/>
-<Tab label ="Mega Number Rank"/>
+<Tab className="col-4" label ="Regular Number Rank"/>
+<Tab className="col-4" label ="Winning Amout by Date"/>
+<Tab className="col-4" label ="Mega Number Rank"/>
 </Tabs>
 
 </Paper>

@@ -19,7 +19,7 @@ function LottoChart() {
   console.log(chartState);
 
   return (
-    <Paper elevation={3}>
+    <Paper className="m-2" elevation={3}>
       <Bar
         data={chartState}
         width="400px"

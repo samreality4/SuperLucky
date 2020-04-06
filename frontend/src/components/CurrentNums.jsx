@@ -8,8 +8,8 @@ function CurrentNums() {
 
   return (
 <div className="text-center mt-5">
-    <h3>Current Winning Number</h3>
-    <Paper className="container-fluid row m-1 p-0 col-8 mx-auto justify-content-center">
+    <h3>12/12/20 Winning Number</h3>
+    <Paper className="container-fluid row m-1 p-0 col-8 mx-auto justify-content-center" elevation={5}>
      
       {array.map((num) => (
         <IndividualNum num={num} />

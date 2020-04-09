@@ -1,29 +1,16 @@
-import React, {useEffect} from "react";
-import TabBar from "./TabBar";
-import LottoChart from "./LottoChart";
+import React from "react";
 import CurrentNums from "./CurrentNums";
-import axios from "axios";
+import TabBar from "./Charts/TabPage";
+import Landing from "./Landing";
+import NavBar from "./NavBar"
+
 
 function App() {
-  function getData() {
-    axios
-      .get("/getdata")
-      .then((reponse) => {
-        return <LottoChart data = {reponse}/>;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
-  useEffect(() => {
-    getData();
-  }, []);
-
   return (
     <div>
-      <TabBar />
-      <LottoChart />
+      <NavBar/>
+      <Landing/>
+      <TabBar/>
       <CurrentNums />
     </div>
   );

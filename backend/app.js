@@ -10,39 +10,52 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 // app.use(express.static(path.join(__dirname, 'build')));
 
-
 const con = mysql.createConnection({
-
-host:"localhost",
-user: process.env.USERNAME,
-password: process.env.PASSWORD,
-database: "luckynumbers"
+  host: "localhost",
+  user: process.env.USERNAME,
+  password: process.env.PASSWORD,
+  database: "luckynumbers",
 });
-
-console.log(process.env.USER);
 
 con.connect((err) => {
-    if(err) throw err;
-    console.log("Connected!");
-})
-
-con.query("SELECT * FROM lottery", (err, rows) => {
-    if(err) throw err;
-
-    console.log(rows);
-})
-
-app.get("/", (req, res) => {
-
-
-    
+  if (err) throw err;
+  console.log("Connected!");
 });
 
-app.post("/newdata", (req, res) => {
+app.get("/getregulardata", (req, res) => {
+  con.query(
+    "SELECT Numbers,COUNT(*) as count FROM superlottoregular GROUP BY Numbers ORDER BY Numbers ASC;",
+    (err, rows) => {
+      if (err) throw err;
 
+      res.send(rows);
+    }
+  );
 });
+
+app.get("/getregulardata", (req, res) => {
+  con.query(
+    "SELECT * FROM superlottoregular GROUP BY Numbers ORDER BY Numbers ASC;",
+    (err, rows) => {
+      if (err) throw err;
+
+      res.send(rows);
+    }
+  );
+});
+
+app.get("/getmegadata", (req, res) => {
+    con.query(
+      "SELECT Numbers,COUNT(*) as count FROM superlottomega GROUP BY Numbers ORDER BY Numbers ASC;",
+      (err, rows) => {
+        if (err) throw err;
+  
+        res.send(rows);
+      }
+    );
+  });
+
 
 app.listen(process.env.PORT || 5000, () => {
-    console.log("Server started on port 5000");
-})
-
+  console.log("Server started on port 5000");
+});

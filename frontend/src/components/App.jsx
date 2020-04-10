@@ -1,18 +1,25 @@
-import React from "react";
-import CurrentNums from "./CurrentNums";
-import TabBar from "./Charts/TabPage";
+import React, {useRef} from "react";
+import NavBar from "./NavBar";
 import Landing from "./Landing";
-import NavBar from "./NavBar"
-
+import AllCharts from "./AllCharts";
+import About from "./About";
+import Footer from "./Footer";
 
 function App() {
+const chartRef = useRef();
+
   return (
+   
     <div>
-      <NavBar/>
-      <Landing/>
-      <TabBar/>
-      <CurrentNums />
+      <NavBar chartRef={chartRef}/>
+      <Landing />
+      <About />
+      <div ref={chartRef}>
+      <AllCharts />
+      </div>
+      <Footer />
     </div>
+  
   );
 }
 

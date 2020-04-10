@@ -11,7 +11,7 @@ function TabPage() {
   }
 
   return (
-    <Paper className="m-1 mt-5" elevation={2}>
+    <Paper className="m-1 mt-5 mb-5" elevation={5}>
       <Tabs
         className="row m-0 p-0 col-12"
         value={tabState}
@@ -22,20 +22,22 @@ function TabPage() {
       >
         <Tab className="col-4" label="Regular Number Rating" />
         <Tab className="col-4" label="Mega Number Rating" />
-        <Tab className="col-4" label="Winning Amount by Date" />
-      
       </Tabs>
 
       <TabPanel value={tabState} index={0}>
-        <LottoChart  link="/getregulardata" title="Regular Number Rating" backgroundColor="rgba(255,0,0,0.3)"/>
+        <LottoChart
+          link="/getregulardata"
+          title="Regular Number Rating"
+          backgroundColor="rgba(255,0,0,0.3)"
+        />
       </TabPanel>
       <TabPanel value={tabState} index={1}>
-        <LottoChart  link="/getmegadata" title="Mega Number Rating" backgroundColor="rgba(0,255,0,0.3)"/>
+        <LottoChart
+          link="/getmegadata"
+          title="Mega Number Rating"
+          backgroundColor="rgba(0,255,0,0.3)"
+        />
       </TabPanel>
-      <TabPanel value={tabState} index={2}>
-        <LottoChart  link="/getwinningdata" title="Winning Amount by Date" backgroundColor="rgba(0,0,255,0.3)"/>
-      </TabPanel>
-      
     </Paper>
   );
 }

@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
+import { Paper } from "@material-ui/core";
 import axios from "axios";
 
-
-function LottoChart(props) {
-
+function WinningChart() {
   useEffect(() => {
-    function getData(link, title, backgroundColor) {
+    function getData() {
       axios
-        .get(link)
+        .get("/getwinningdata")
         .then((response) => {
+          console.log(response);
           setChartState({
-            labels: response.data.map((item) => item["Numbers"]),
+            labels: response.data.map((item) => item["Date"]),
             datasets: [
               {
-                label: title,
-                data: response.data.map((item) => item["count"]),
+                label: "Winning Amount by Date",
+                data: response.data.map((item) => item["winnings"]),
                 barPercentage: 0.3,
-                backgroundColor: backgroundColor,
+                backgroundColor: "rgba(0,0,255,0.3)",
               },
             ],
           });
@@ -27,28 +27,28 @@ function LottoChart(props) {
         });
     }
 
-    getData(props.link, props.title, props.backgroundColor);
+    getData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [chartState, setChartState] = useState({});
 
   return (
-    <div>
-      <div className="m-1">
-        <Bar
+  
+      <Paper className="m-1 mb-5 p-3" elevation={5}>
+        <Line
           data={chartState}
           width="400px"
           height="400px"
           options={{ maintainAspectRatio: false, responsive: true }}
         />
         <p className="text-center font-italic font-weight-light">
-          *Base on 1/4/12 to 12/28/19 data. Please use this data at your
+          *Base on 5/20/15 to 12/28/19 data. Please use this data at your
           discretion.
         </p>
-      </div>
-    </div>
+      </Paper>
+ 
   );
 }
 
-export default LottoChart;
+export default WinningChart;

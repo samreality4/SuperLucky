@@ -27,7 +27,6 @@ app.get("/getregulardata", (req, res) => {
     "SELECT Numbers,COUNT(*) as count FROM superlottoregular GROUP BY Numbers ORDER BY Numbers ASC;",
     (err, rows) => {
       if (err) throw err;
-
       res.send(rows);
     }
   );
@@ -38,7 +37,6 @@ app.get("/getregulardata", (req, res) => {
     "SELECT * FROM superlottoregular GROUP BY Numbers ORDER BY Numbers ASC;",
     (err, rows) => {
       if (err) throw err;
-
       res.send(rows);
     }
   );
@@ -49,11 +47,20 @@ app.get("/getmegadata", (req, res) => {
       "SELECT Numbers,COUNT(*) as count FROM superlottomega GROUP BY Numbers ORDER BY Numbers ASC;",
       (err, rows) => {
         if (err) throw err;
-  
         res.send(rows);
       }
     );
   });
+
+  app.get("/getwinningdata", (req, res) => {
+    con.query(
+      "SELECT winnings, Date FROM superlottowinning;",
+      (err, rows) => {
+        if (err) throw err;
+      res.send(rows);
+      }
+    );
+  })
 
 
 app.listen(process.env.PORT || 5000, () => {

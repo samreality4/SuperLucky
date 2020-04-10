@@ -11,30 +11,30 @@ function TabPage() {
   }
 
   return (
-    <Paper className="m-1 mt-5 mb-5" elevation={5}>
+    <Paper className="mt-5 mb-5 mx-auto" elevation={5}>
       <Tabs
-        className="row m-0 p-0 col-12"
+        className="row p-0 m-0 col-12"
         value={tabState}
         onChange={handleChange}
         indicatorColor="primary"
         textColor="primary"
         centered
       >
-        <Tab className="col-4" label="Regular Number Rating" />
-        <Tab className="col-4" label="Mega Number Rating" />
+        <Tab className="col-4" label="Regular Number by Appearance" />
+        <Tab className="col-4" label="Mega Number by Appearance" />
       </Tabs>
 
       <TabPanel value={tabState} index={0}>
         <LottoChart
           link="/getregulardata"
-          title="Regular Number Rating"
+          title="Regular Number by Appearance"
           backgroundColor="rgba(255,0,0,0.3)"
         />
       </TabPanel>
       <TabPanel value={tabState} index={1}>
         <LottoChart
           link="/getmegadata"
-          title="Mega Number Rating"
+          title="Mega Number by Appearance"
           backgroundColor="rgba(0,255,0,0.3)"
         />
       </TabPanel>

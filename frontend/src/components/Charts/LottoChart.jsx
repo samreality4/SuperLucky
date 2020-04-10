@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import axios from "axios";
 
-
 function LottoChart(props) {
-
   useEffect(() => {
     function getData(link, title, backgroundColor) {
       axios
         .get(link)
         .then((response) => {
+          console.log(response);
           setChartState({
             labels: response.data.map((item) => item["Numbers"]),
             datasets: [
@@ -35,7 +34,7 @@ function LottoChart(props) {
 
   return (
     <div>
-      <div className="m-1">
+      <div className="p-5" style={{ height: "650px" }}>
         <Bar
           data={chartState}
           width="400px"

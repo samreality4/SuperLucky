@@ -9,7 +9,6 @@ function WinningChart() {
       axios
         .get("/getwinningdata")
         .then((response) => {
-          console.log(response);
           setChartState({
             labels: response.data.map((item) => item["Date"]),
             datasets: [
@@ -35,7 +34,7 @@ function WinningChart() {
 
   return (
   
-      <Paper className="m-1 mb-5 p-3" elevation={5}>
+      <Paper className="mx-auto mb-5 p-5" style={{height: "650px"}}elevation={5}>
         <Line
           data={chartState}
           width="400px"

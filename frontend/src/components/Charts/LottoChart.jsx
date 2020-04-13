@@ -3,34 +3,37 @@ import { Bar } from "react-chartjs-2";
 import axios from "axios";
 
 function LottoChart(props) {
+  const [chartState, setChartState] = useState({});
+
   useEffect(() => {
     function getData(link, title, backgroundColor) {
       axios
         .get(link)
         .then((response) => {
           console.log(response);
-          setChartState({
-            labels: response.data.map((item) => item["Numbers"]),
-            datasets: [
-              {
-                label: title,
-                data: response.data.map((item) => item["count"]),
-                barPercentage: 0.3,
-                backgroundColor: backgroundColor,
-              },
-            ],
-          });
+          updateChartState(response, title, backgroundColor);
         })
         .catch((error) => {
           console.log(error);
         });
     }
-
     getData(props.link, props.title, props.backgroundColor);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const [chartState, setChartState] = useState({});
+  function updateChartState(response, title, backgroundColor) {
+    setChartState({
+      labels: response.data.map((item) => item["Numbers"]),
+      datasets: [
+        {
+          label: title,
+          data: response.data.map((item) => item["count"]),
+          barPercentage: 0.3,
+          backgroundColor: backgroundColor,
+        },
+      ],
+    });
+  }
 
   return (
     <div>

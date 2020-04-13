@@ -1,12 +1,12 @@
 import React from "react";
-import TabPage from "./Charts/TabPage";
+import LottoPage from "./Charts/LottoPage";
 import WinningChart from "./Charts/WinningChart";
 
 
 function AllCharts () {
 
     return <div>
-        <TabPage/>
+        <LottoPage/>
         <WinningChart/>
     </div>
 }

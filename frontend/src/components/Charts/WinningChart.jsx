@@ -21,7 +21,7 @@ function WinningChart() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  function updateChartState() {
+  function updateChartState(response) {
     setChartState({
       labels: response.data.map((item) => item["Date"]),
       datasets: [

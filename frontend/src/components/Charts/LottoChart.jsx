@@ -10,7 +10,6 @@ function LottoChart(props) {
       axios
         .get(link)
         .then((response) => {
-          console.log(response);
           updateChartState(response, title, backgroundColor);
         })
         .catch((error) => {

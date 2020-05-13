@@ -9,7 +9,7 @@ function NavBar(props) {
   }
 
   return (
-    <AppBar position="static" style={{ backgroundColor: "#000103" }}>
+    <AppBar position="static" style={{ background: "linear-gradient(93deg, rgba(217,80,69,1) 24%, rgba(217,147,69,1) 76%)" }}>
       <Toolbar className=" navbar ml-auto">
         <Button onClick={handleClick} style={{ color: "#ffffff" }}>
           Charts

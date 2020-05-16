@@ -56,6 +56,26 @@ app.get("/getwinningdata", (req, res) => {
   });
 });
 
+app.get("/gettopthreemegadata", (req, res) => {
+  pool.query("SELECT Numbers,COUNT(*) as count FROM superlottomega GROUP BY Numbers ORDER BY Numbers DESC LIMT 3", (err, rows) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(rows);
+    }
+  });
+});
+
+app.get("/gettopthreeregulardata", (req, res) => {
+  pool.query("SELECT Numbers,COUNT(*) as count FROM superlottomega GROUP BY Numbers ORDER BY Numbers DESC LIMIT 3", (err, rows) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(rows);
+    }
+  });
+});
+
 app.listen(process.env.PORT || 5000, () => {
   console.log("Server started on port 5000");
 });

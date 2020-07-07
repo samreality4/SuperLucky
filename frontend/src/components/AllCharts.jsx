@@ -1,5 +1,5 @@
 import React from "react";
-import LottoPage from "./Charts/LottoPage";
+import LottoPage from "./LottoPage";
 import WinningChart from "./Charts/WinningChart";
 
 

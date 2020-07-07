@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import { Paper } from "@material-ui/core";
 import axios from "axios";
+import RandomColorGen from "../util/RandomColorGen";
 
 function WinningChart() {
   const [chartState, setChartState] = useState({});

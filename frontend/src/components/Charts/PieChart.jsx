@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Pie } from "react-chartjs-2";
 import axios from "axios";
-import RandomColorGen from "../util/RandomColorGen";
+import RandomColorGen from "../../util/RandomColorGen";
 
 function PieChart(props) {
   const [chartState, setChartState] = useState({});

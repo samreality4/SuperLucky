@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Paper, Tabs, Tab } from "@material-ui/core";
-import TabPanel from "./util/TabPanel";
+import TabPanel from "./misc/TabPanel";
 import LottoChart from "./Charts/LottoChart";
 import Piechart from "./Charts/PieChart";
 

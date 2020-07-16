@@ -4,7 +4,7 @@ import Landing from "./Landing";
 import AllCharts from "./AllCharts";
 import About from "./About";
 import Footer from "./Footer";
-import FloatingLogo from "./FloatingLogo";
+import FloatingLogo from "./misc/FloatingLogo";
 
 function App() {
   const chartRef = useRef();
